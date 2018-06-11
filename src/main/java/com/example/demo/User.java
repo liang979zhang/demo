@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,6 +15,7 @@ public class User implements Serializable {
     private Long id;
 
     private String username;
+    private int type = 0;// 1是学生,2是老师
 
     private String name;
     @NotNull(message = "密码必填")//数据库添加备注信息
@@ -23,15 +23,15 @@ public class User implements Serializable {
 
     private int age;
 
+    public User() {
+    }
+
+
     public int getAge() {
         return age;
     }
-
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public User() {
     }
 
     public Long getId() {
@@ -66,11 +66,21 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
+                ", type=" + type +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", age=" + age +

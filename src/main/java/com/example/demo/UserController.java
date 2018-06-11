@@ -19,19 +19,20 @@ public class UserController {
 
     @GetMapping("/users")
     public List findUserList() {
-            return userRepository.findAll();
+        return userRepository.findAll();
     }
 
 
     /**
      * post注解方式提交访问数据
+     *
      * @param username
      * @param name
      * @param password
      * @return
      */
     @PostMapping("/users/add")
-    public User addUser(@RequestParam("username") String username,@RequestParam("name") String name,@RequestParam("password") String password) {
+    public User addUser(@RequestParam("username") String username, @RequestParam("name") String name, @RequestParam("password") String password) {
         User user = new User();
         user.setUsername(username);
         user.setName(name);
@@ -41,15 +42,10 @@ public class UserController {
     }
 
 
-
-
-
-
-
     @PostMapping("/users/getString")
     public String getStrng() {
         List<User> list = userSerivce.findAll();
-            return list.size()+"";
+        return list.size() + "";
     }
 
 
@@ -58,9 +54,6 @@ public class UserController {
 
         return userSerivce.findUserById(id);
     }
-
-
-
 
 
 }
